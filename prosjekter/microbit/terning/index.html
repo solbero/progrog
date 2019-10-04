@@ -1,0 +1,218 @@
+<!doctype html><html lang="no" class="no-js"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Lær å programmere på Micro Bit"><meta name="author" content="Njord A. Solberg"><meta name="lang:clipboard.copy" content="Kopier til utklippstavlen"><meta name="lang:clipboard.copied" content="Kopiert til utklippstavlen"><meta name="lang:search.language" content="no, en"><meta name="lang:search.pipeline.stopwords" content="True"><meta name="lang:search.pipeline.trimmer" content="True"><meta name="lang:search.result.none" content="Ingen treff"><meta name="lang:search.result.one" content="1 treff"><meta name="lang:search.result.other" content="# treff"><meta name="lang:search.tokenizer" content="[\s\-]+"><link rel="shortcut icon" href="../../../images/favicon.png"><meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.3.1"><title>Lag en terning - ProgRog</title><link rel="stylesheet" href="../../../assets/stylesheets/application.4031d38b.css"><link rel="stylesheet" href="../../../assets/stylesheets/application-palette.224b79ff.css"><meta name="theme-color" content="#009688"><script src="../../../assets/javascripts/modernizr.74668098.js"></script><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=swap"><style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style><link rel="stylesheet" href="../../../assets/fonts/material-icons.css"><link rel="stylesheet" href="../../../stylesheets/extra.css"></head><body dir="ltr" data-md-color-primary="teal" data-md-color-accent="teal"><svg class="md-svg"><defs></defs></svg> <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off"> <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off"> <label class="md-overlay" data-md-component="overlay" for="__drawer"></label><a href="#lag-en-terning-med-micro-bit" tabindex="1" class="md-skip">Gå til innhold </a><header class="md-header" data-md-component="header"><nav class="md-header-nav md-grid"><div class="md-flex"><div class="md-flex__cell md-flex__cell--shrink"><a href="../../.." title="ProgRog" class="md-header-nav__button md-logo"><i class="md-icon">build</i></a></div><div class="md-flex__cell md-flex__cell--shrink"><label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label></div><div class="md-flex__cell md-flex__cell--stretch"><div class="md-flex__ellipsis md-header-nav__title" data-md-component="title"><span class="md-header-nav__topic">ProgRog</span><span class="md-header-nav__topic">Lag en terning</span></div></div><div class="md-flex__cell md-flex__cell--shrink"><label class="md-icon md-icon--search md-header-nav__button" for="__search"></label><div class="md-search" data-md-component="search" role="dialog"><label class="md-search__overlay" for="__search"></label><div class="md-search__inner" role="search"><form class="md-search__form" name="search"><input type="text" class="md-search__input" name="query" placeholder="Søk" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active"> <label class="md-icon md-search__icon" for="__search"></label> <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">&#xE5CD;</button></form><div class="md-search__output"><div class="md-search__scrollwrap" data-md-scrollfix><div class="md-search-result" data-md-component="result"><div class="md-search-result__meta">Skriv søkeord</div><ol class="md-search-result__list"></ol></div></div></div></div></div></div></div></nav></header><div class="md-container"><main class="md-main"><div class="md-main__inner md-grid" data-md-component="container"><div class="md-sidebar md-sidebar--primary" data-md-component="navigation"><div class="md-sidebar__scrollwrap"><div class="md-sidebar__inner"><nav class="md-nav md-nav--primary" data-md-level="0"><label class="md-nav__title md-nav__title--site" for="__drawer"><a href="../../.." title="ProgRog" class="md-nav__button md-logo"><i class="md-icon">build</i></a>ProgRog</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../.." title="Velkommen" class="md-nav__link">Velkommen</a></li><li class="md-nav__item md-nav__item--active md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked><label class="md-nav__link" for="nav-2">Micro Bit</label><nav class="md-nav" data-md-component="collapsible" data-md-level="1"><label class="md-nav__title" for="nav-2">Micro Bit</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item md-nav__item--active"><input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc"><label class="md-nav__link md-nav__link--active" for="__toc">Lag en terning</label><a href="./" title="Lag en terning" class="md-nav__link md-nav__link--active">Lag en terning</a><nav class="md-nav md-nav--secondary"><label class="md-nav__title" for="__toc">Innholdsfortegnelse</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="#introduksjon" title="Introduksjon" class="md-nav__link">Introduksjon</a></li><li class="md-nav__item"><a href="#steg-1-sla-en-terning" title="Steg 1: Slå en terning" class="md-nav__link">Steg 1: Slå en terning</a></li><li class="md-nav__item"><a href="#steg-2-lage-en-enkel-terninganimasjon" title="Steg 2: Lage en enkel terninganimasjon" class="md-nav__link">Steg 2: Lage en enkel terninganimasjon</a></li><li class="md-nav__item"><a href="#steg-3-fa-terningkastet-til-a-blinke" title="Steg 3: Få terningkastet til å blinke" class="md-nav__link">Steg 3: Få terningkastet til å blinke</a></li><li class="md-nav__item"><a href="#steg-4-huske-et-terningkast-med-en-variabel" title="Steg 4: Huske et terningkast med en variabel" class="md-nav__link">Steg 4: Huske et terningkast med en variabel</a></li><li class="md-nav__item"><a href="#kode" title="Kode" class="md-nav__link">Kode</a></li></ul></nav></li></ul></nav></li><li class="md-nav__item"><a href="../../../om/" title="Om ProgRog" class="md-nav__link">Om ProgRog</a></li><li class="md-nav__item"><a href="../../../kontakt/" title="Kontakt" class="md-nav__link">Kontakt</a></li></ul></nav></div></div></div><div class="md-sidebar md-sidebar--secondary" data-md-component="toc"><div class="md-sidebar__scrollwrap"><div class="md-sidebar__inner"><nav class="md-nav md-nav--secondary"><label class="md-nav__title" for="__toc">Innholdsfortegnelse</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="#introduksjon" title="Introduksjon" class="md-nav__link">Introduksjon</a></li><li class="md-nav__item"><a href="#steg-1-sla-en-terning" title="Steg 1: Slå en terning" class="md-nav__link">Steg 1: Slå en terning</a></li><li class="md-nav__item"><a href="#steg-2-lage-en-enkel-terninganimasjon" title="Steg 2: Lage en enkel terninganimasjon" class="md-nav__link">Steg 2: Lage en enkel terninganimasjon</a></li><li class="md-nav__item"><a href="#steg-3-fa-terningkastet-til-a-blinke" title="Steg 3: Få terningkastet til å blinke" class="md-nav__link">Steg 3: Få terningkastet til å blinke</a></li><li class="md-nav__item"><a href="#steg-4-huske-et-terningkast-med-en-variabel" title="Steg 4: Huske et terningkast med en variabel" class="md-nav__link">Steg 4: Huske et terningkast med en variabel</a></li><li class="md-nav__item"><a href="#kode" title="Kode" class="md-nav__link">Kode</a></li></ul></nav></div></div></div><div class="md-content"><article class="md-content__inner md-typeset"><h1 id="lag-en-terning-med-micro-bit">Lag en terning med Micro Bit<a class="headerlink" href="#lag-en-terning-med-micro-bit" title="Permanent link">&para;</a></h1>
+<iframe width="768" height="432" src="https://www.youtube.com/embed/3XVeBTbpBo4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h2 id="introduksjon">Introduksjon<a class="headerlink" href="#introduksjon" title="Permanent link">&para;</a></h2>
+<p>Dette er en oppgave som passer godt for nybegynnere og den tar en time å gjennomføre. Du skal i denne oppgaven programmere Micro Biten til å bli en terning. Micro Biten har en sensor som gjør at den kan merkes om den ristes. Den skal vi bruke til å lage vår egen Micro Bit-terning!</p>
+<div class="admonition abstract">
+<p class="admonition-title">Du vil lære</p>
+<ul>
+<li>å få Micro Biten til å gjøre noe når den ristes</li>
+<li>å lage en animasjon på skjermen til Micro Biten</li>
+<li>å bruke en variabel til å huske et tall</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Du trenger</p>
+<ul>
+<li>en Micro Bit</li>
+<li>en USB-kabel til overføring</li>
+<li>en batteripakke med to AAA-batterier</li>
+<li>en utskrift av brettspillet <a href="../images/snakes-and-ladders.svg">Snakes and Ladders</a> per to elever</li>
+</ul>
+</div>
+<h2 id="steg-1-sla-en-terning">Steg 1: Slå en terning<a class="headerlink" href="#steg-1-sla-en-terning" title="Permanent link">&para;</a></h2>
+<p>Begynn med å gå til <a href="https://makecode.microbit.org/">MakeCode for micro:bit</a>. Start et nytt prosjekt ved å trykke på knappen <code>Nytt Prosjekt</code>. Da vil nettsiden der du programmerer Micro Biten åpnes. Gi prosjektet navnet <em>Terning</em> ved å skrive i tekstfeltet nederst på nettsiden.</p>
+<p>Slett alle klossene som ligger i lærretet. Du sletter en kloss ved å dra den til venstre. Når det dukker opp et søplespann slipper du klossen for å slette den.</p>
+<p>Nå skal vi kode! Vi vil at Micro Biten skal gjøre noe når du rister den. Begynn med å dra klossen <code class="input">når ristes</code> fra kategorien <code class="input">Inndata</code> og slipp den på lærretet til høyre på nettsiden.</p>
+<pre><code class="blocks">input.onGesture(Gesture.Shake, function () {
+})
+</code></pre>
+
+<p>Når Micro Biten ristes skal den vise et tall på skjermen. For å få til dette må du dra klossen <code class="basic">vis tall</code> fra kategorien <code class="basic">Basis</code> og plassere den i munnen til <code class="input">når ristes</code>.</p>
+<pre><code class="blocks">input.onGesture(Gesture.Shake, function () {
+    basic.showNumber(0)
+})
+</code></pre>
+
+<p>Micro Biten skal vise et tilfeldig tall på skjermen når den ristes. For å kode dette må du plassere klossen <code class="math">velg tilfeldig</code> fra kategorien <code class="math">Matematikk</code> på verdifeltet til <code class="basic">vis tall</code>.</p>
+<pre><code class="blocks">input.onGesture(Gesture.Shake, function () {
+    basic.showNumber(Math.randomRange(0, 10))
+})
+</code></pre>
+
+<p>En terning har øyne fra 1 til 6. Men <code class="math">velg tilfedig</code> har som standard et at den velger et tilfeldig tall fra 0 til 10. For at Micro Biten skal vise riktige tall for en terning må du skifte verdiene til 1 og 6.</p>
+<pre><code class="blocks">input.onGesture(Gesture.Shake, function () {
+    basic.showNumber(Math.randomRange(1, 6))
+})
+</code></pre>
+
+<div class="admonition success">
+<p class="admonition-title">Test programmet</p>
+<p>Til venstre på MakeCode er det et bilde av en Micro Bit. Denne kan du bruke til å teste programmet ditt mens du koder. Trykk på den hvite sirkelen ved siden av <code>SHAKE</code>. Da tror Micro Biten at du rister den, og den vil vise ett tilfeldig tall mellom 1 til 6.</p>
+</div>
+<div class="admonition failure">
+<p class="admonition-title">Det virker ikke!</p>
+<p>Hvis Micro Biten ikke viser et tall mellom 1 til 6 hver gang du trykker <code>SHAKE</code> så er noe galt i koden din. For å finne feilen bør du lese oppskriften om igjen og se nøye på bildene. En vanlig feil er å glemme å skifte tallene i <code class="math">velg tilfeldig</code> til 1 og 6.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Utfordring</p>
+<p>Vanlige terninger har øyne fra 1 til 6. Men noen terninger har øyne fra 1 til 20. Disse kalles for D20-terninger. Hva må du forandre i koden du har skrevet for å få Micro Biten til å fungere som en D20-terning?</p>
+</div>
+<h2 id="steg-2-lage-en-enkel-terninganimasjon">Steg 2: Lage en enkel terninganimasjon<a class="headerlink" href="#steg-2-lage-en-enkel-terninganimasjon" title="Permanent link">&para;</a></h2>
+<p>Terningen vår fungerer nå, men den er litt kjedelig. Det ville vært mye morsommere om terningen viste forskjellige tall før den til slutt landet på et tall slik som en ekte terning. For å få til dette må du lage en animasjon.</p>
+<p>Hent klossen <code class="loops">gjenta</code> fra kategorien <code class="loops">Løkker</code> og plasser den rundt <code class="basic">vis tall</code> i koden din.</p>
+<pre><code class="blocks">input.onGesture(Gesture.Shake, function () {
+    for (let i = 0; i &lt; 4; i++) {
+        basic.showNumber(Math.randomRange(1, 6))
+    }
+})
+</code></pre>
+
+<p>Skift tallet i verdifeltet til <code class="loops">gjenta</code> fra 4 til 5.</p>
+<pre><code class="blocks">input.onGesture(Gesture.Shake, function () {
+    for (let i = 0; i &lt; 5; i++) {
+        basic.showNumber(Math.randomRange(1, 6))
+    }
+})
+</code></pre>
+
+<div class="admonition info">
+<p class="admonition-title">Hva gjør klossen <code class="loops">gjenta</code>?</p>
+<p>Denne klossen gjentar koden som plasseres i munnen til klossen. Antall ganger <code class="loops">gjenta</code> gjentar koden bestemmes av tallet som står i verdifeltet. Det finnes forkjellige typer gjenta-klosser. Du kan se alle typene som finnes i MakeCode ved å trykke på kategorien <code class="loops">Løkker</code>.</p>
+</div>
+<p>Hvis du tester programmet ditt nå vil se du at tallene på skjermen til Micro Biten skifter veldig fort. Det er rett og slett vanskelig å se dem. For å få hvert tall til å vises lengre på skjermen må vi legge til en pause.</p>
+<p>Dra klossen <code class="basic">pause</code> fra kategorien <code class="basic">Basis</code> og plasser den under <code class="basic">vis tall</code>. Pass på at <code class="basic">pause</code> er inni munnen til <code class="loops">gjenta</code>.</p>
+<pre><code class="blocks">input.onGesture(Gesture.Shake, function () {
+    for (let i = 0; i &lt; 5; i++) {
+        basic.showNumber(Math.randomRange(1, 6))
+        basic.pause(100)
+    }
+})
+</code></pre>
+
+<div class="admonition success">
+<p class="admonition-title">Test programmet</p>
+<p>Bruk Micro Biten på nettsiden til å teste programmet ditt. Trykk på den hvite sirkelen ved siden av <code>SHAKE</code>. Microbiten skal da vise fem tilfeldige tall på skjermen for hver gang du trykker <code>SHAKE</code>.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Utfordring</p>
+<p>Hva må du forandre i koden din for å få Micro Biten til å kun vise tre tilfeldige tall hver gang du trykker på <code>SHAKE</code>?</p>
+</div>
+<h2 id="steg-3-fa-terningkastet-til-a-blinke">Steg 3: Få terningkastet til å blinke<a class="headerlink" href="#steg-3-fa-terningkastet-til-a-blinke" title="Permanent link">&para;</a></h2>
+<p>Terningen fungerer nå, men det kan være vanskelig å se hva tall terningen lander på til slutt. Det kan vi gjøre tydeligere ved å lage en ny animasjon som får tallet terningen lander på til å blinke.</p>
+<p>Begynn med å ta en ny <code class="loops">gjenta</code> fra kategorien <code class="loops">Løkker</code>. Plasser den under klossen <code class="loops">gjenta</code> som allerede er i programmet. Skift tallet 4 til 3 i verdifeltet til den nye klossen.</p>
+<pre><code class="blocks">input.onGesture(Gesture.Shake, function () {
+    for (let i = 0; i &lt; 5; i++) {
+        basic.showNumber(Math.randomRange(1, 6))
+        basic.pause(100)
+    }
+    for (let i = 0; i &lt; 3; i++) {
+
+    }
+})
+</code></pre>
+
+<p>For å få tallet til å blike på Micro Biten trenger du noen flere klosser. Finn først klossen <code class="basic">tøm skjerm</code>. For å finne denne klossen må du først trykke på kategorien <code class="basic">Basis</code>. Når du har trykket på kategorien vil det komme en ny kategori under <code class="basic">Basis</code> som heter <code class="basic">⋯ more</code>. Trykk på den nye kategorien for å finne <code class="basic">tøm skjerm</code>.</p>
+<pre><code class="blocks">input.onGesture(Gesture.Shake, function () {
+    for (let i = 0; i &lt; 5; i++) {
+        basic.showNumber(Math.randomRange(1, 6))
+        basic.pause(100)
+    }
+    for (let i = 0; i &lt; 3; i++) {
+        basic.clearScreen()
+    }
+})
+</code></pre>
+
+<div class="admonition info">
+<p class="admonition-title">Hva gjør klossen <code class="basic">tøm skjerm</code>?</p>
+<p>Denne klossen skrur av alle lysene på skjermen til Micro Biten. Det er en kloss som er fin å bruke hvis du vil vise noe på skjermen og så ta det vekk etterpå.</p>
+</div>
+<p>Nå skal vi finne tre klosser på en gang, men heldigvis kommer alle fra samme kategori. Først finner du klossen <code class="basic">pause</code> fra kategorien <code class="basic">Basis</code>. Ta så en <code class="basic">vis tall</code> fra samme kategori. Til slutt trenger du enda en <code class="basic">pause</code>.</p>
+<pre><code class="blocks">input.onGesture(Gesture.Shake, function () {
+    for (let i = 0; i &lt; 5; i++) {
+        basic.showNumber(Math.randomRange(1, 6))
+        basic.pause(100)
+    }
+    for (let i = 0; i &lt; 3; i++) {
+        basic.clearScreen()
+        basic.pause(100)
+        basic.showNumber(0)
+        basic.pause(100)
+    }
+})
+</code></pre>
+
+<div class="admonition success">
+<p class="admonition-title">Test programmet</p>
+<p>Bruk simulatoren på MakeCode til å teste programmet ditt. Trykk på <code>SHAKE</code> på Micro Biten og se hva som skjer!</p>
+</div>
+<div class="admonition failure">
+<p class="admonition-title">Det virker ikke!</p>
+<p>Hvis du testet programmet ditt i simulatoren så vil du ha sett en feil i koden. Det var kun tallet 0 som blinket, og ikke terningkastet. Det skal vi fikse nå.</p>
+</div>
+<h2 id="steg-4-huske-et-terningkast-med-en-variabel">Steg 4: Huske et terningkast med en variabel<a class="headerlink" href="#steg-4-huske-et-terningkast-med-en-variabel" title="Permanent link">&para;</a></h2>
+<p>Heldigvis finnes det en måte å få Micro Biten til å huske det siste tallet i animasjonen til terningen. Vi må bruke en variabel.</p>
+<p>For å lage en variabel trykker du på kategorien <code class="variables">Variabler</code>. Trykk så på knappen <code>Lag en ny variabel</code>. Du vil få spørsmål om hva du vil kalle variabelen din, kall den for <em>terningkast</em> og trykk på <code>Ok</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Hva er en variabel?</p>
+<p>Variabler brukes i programmer for å huske noe til senere. En variabel kan være et tall eller en setning. Det er være mange grunner til at programmer må huske noe. En grunn for at et program skal huske et tall som skal brukes i et regnestykke senere i programmet.</p>
+</div>
+<p>Etter at du har laget variabelen <code class="variables">terningkast</code> vil det komme noen nye klosser i kategorien <code class="variables">Variabel</code>. Finn klossen som heter <code class="variables">sett terningkast til</code> og plasser den over <code class="basic">vis tall</code>. Pass på at <code class="variables">sett terningkast til</code> er i munnen til <code class="loops">gjenta</code>.</p>
+<pre><code class="blocks">let terningkast = 0
+input.onGesture(Gesture.Shake, function () {
+    for (let i = 0; i &lt; 5; i++) {
+        terningkast = 0
+        basic.showNumber(Math.randomRange(1, 6))
+        basic.pause(100)
+    }
+    for (let i = 0; i &lt; 3; i++) {
+        basic.clearScreen()
+        basic.pause(100)
+        basic.showNumber(0)
+        basic.pause(100)
+    }
+})
+</code></pre>
+
+<p>Dra klossen <code class="math">velg tilfeldig</code> vekk fra verdifeltet til <code class="basic">vis tall</code> og slipp den ned på verdifeltet til <code class="variables">sett terningkast til</code>.</p>
+<pre><code class="blocks">let terningkast = 0
+input.onGesture(Gesture.Shake, function () {
+    for (let i = 0; i &lt; 5; i++) {
+        terningkast = Math.randomRange(1, 6)
+        basic.showNumber(0)
+        basic.pause(100)
+    }
+    for (let i = 0; i &lt; 3; i++) {
+        basic.clearScreen()
+        basic.pause(100)
+        basic.showNumber(0)
+        basic.pause(100)
+    }
+})
+</code></pre>
+
+<p>Hent to <code class="variables">terningkast</code> fra kategorien <code class="variables">Variabler</code> og plasser dem på vedrifeltet til <code class="basic">vis tall</code> i programmet.</p>
+<pre><code class="blocks">let terningkast = 0
+input.onGesture(Gesture.Shake, function () {
+    for (let i = 0; i &lt; 5; i++) {
+        terningkast = Math.randomRange(1, 6)
+        basic.showNumber(terningkast)
+        basic.pause(100)
+    }
+    for (let i = 0; i &lt; 3; i++) {
+        basic.clearScreen()
+        basic.pause(100)
+        basic.showNumber(terningkast)
+        basic.pause(100)
+    }
+})
+</code></pre>
+
+<div class="admonition success">
+<p class="admonition-title">Test programmet</p>
+<p>Overfør det ferdige programmet til Micro Biten ved å bruke en USB-kabel eller Blåtann. Spør en voksen eller venn om hjelp hvis du er usikker. Rist på terningen din og sjekk at programmet fungerer riktig.</p>
+</div>
+<p>Gratulerer, du har nå laget en terning med Micro Biten! Da er det på tide å teste terningen din med å spille brettspillet Snakes and Ladders. Gå sammen to-og-to og se hvem som klarer å vinne!</p>
+<h2 id="kode">Kode<a class="headerlink" href="#kode" title="Permanent link">&para;</a></h2>
+<div style="position:relative;height:0;padding-bottom:70%;overflow:hidden;"><iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://makecode.microbit.org/#pub:_XyC09yC7kK2f" frameborder="0" sandbox="allow-popups allow-forms allow-scripts allow-same-origin"></iframe></div></article></div></div></main><footer class="md-footer"><div class="md-footer-nav"><nav class="md-footer-nav__inner md-grid"><a href="../../.." title="Velkommen" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev"><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-back md-footer-nav__button"></i></div><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Forrige</span>Velkommen</span></div></a><a href="../../../om/" title="Om ProgRog" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next"><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Neste</span>Om ProgRog</span></div><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i></div></a></nav></div><div class="md-footer-meta md-typeset"><div class="md-footer-meta__inner md-grid"><div class="md-footer-copyright"><div class="md-footer-copyright__highlight">Creative Commons BY-SA 4.0</div>powered by <a href="https://www.mkdocs.org">MkDocs</a> and <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a></div></div></div></footer></div><script src="../../../assets/javascripts/application.b260a35d.js"></script><script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script><script src="../../../assets/javascripts/lunr/lunr.no.js"></script><script src="../../../assets/javascripts/lunr/lunr.multi.js"></script><script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script><script src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script src="../../../javascripts/embed.js"></script></body></html>

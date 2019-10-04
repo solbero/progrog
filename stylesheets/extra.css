@@ -1,0 +1,38 @@
+/*Padding for code blocks*/
+.md-typeset pre {
+  padding: 10px 10px 5px 5px;
+}
+
+/*Portrait images*/
+img[src*="#portrait"] {
+   width:25%;
+   height:25%;
+   padding-right: 10px;
+   padding-bottom: 10px;
+   float: left;
+}
+
+.md-typeset .input {
+  color: white;
+  background-color: #D400D4;
+}
+
+.md-typeset .basic {
+  color: white;
+  background-color: #2191FD;
+}
+
+.md-typeset .math {
+  color: white;
+  background-color: #9401D3;
+}
+
+.md-typeset .loops {
+  color: white;
+  background-color: #17AA00;
+}
+
+.md-typeset .variables {
+  color: white;
+  background-color: #DC163C;
+}

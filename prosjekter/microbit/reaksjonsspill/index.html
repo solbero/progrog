@@ -1,0 +1,412 @@
+<!doctype html><html lang="no" class="no-js"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Lær å programmere på Micro Bit"><meta name="author" content="Njord A. Solberg"><meta name="lang:clipboard.copy" content="Kopier til utklippstavlen"><meta name="lang:clipboard.copied" content="Kopiert til utklippstavlen"><meta name="lang:search.language" content="no, en"><meta name="lang:search.pipeline.stopwords" content="True"><meta name="lang:search.pipeline.trimmer" content="True"><meta name="lang:search.result.none" content="Ingen treff"><meta name="lang:search.result.one" content="1 treff"><meta name="lang:search.result.other" content="# treff"><meta name="lang:search.tokenizer" content="[\s\-]+"><link rel="shortcut icon" href="../../../images/favicon.png"><meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.3.1"><title>Reaksjonsspill for to spillere med Micro Bit - ProgRog</title><link rel="stylesheet" href="../../../assets/stylesheets/application.4031d38b.css"><link rel="stylesheet" href="../../../assets/stylesheets/application-palette.224b79ff.css"><meta name="theme-color" content="#009688"><script src="../../../assets/javascripts/modernizr.74668098.js"></script><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=swap"><style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style><link rel="stylesheet" href="../../../assets/fonts/material-icons.css"><link rel="stylesheet" href="../../../stylesheets/extra.css"></head><body dir="ltr" data-md-color-primary="teal" data-md-color-accent="teal"><svg class="md-svg"><defs></defs></svg> <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off"> <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off"> <label class="md-overlay" data-md-component="overlay" for="__drawer"></label><a href="#reaksjonsspill-for-to-spillere-med-micro-bit" tabindex="1" class="md-skip">Gå til innhold </a><header class="md-header" data-md-component="header"><nav class="md-header-nav md-grid"><div class="md-flex"><div class="md-flex__cell md-flex__cell--shrink"><a href="../../.." title="ProgRog" class="md-header-nav__button md-logo"><i class="md-icon">build</i></a></div><div class="md-flex__cell md-flex__cell--shrink"><label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label></div><div class="md-flex__cell md-flex__cell--stretch"><div class="md-flex__ellipsis md-header-nav__title" data-md-component="title"><span class="md-header-nav__topic">ProgRog</span><span class="md-header-nav__topic">Reaksjonsspill for to spillere med Micro Bit</span></div></div><div class="md-flex__cell md-flex__cell--shrink"><label class="md-icon md-icon--search md-header-nav__button" for="__search"></label><div class="md-search" data-md-component="search" role="dialog"><label class="md-search__overlay" for="__search"></label><div class="md-search__inner" role="search"><form class="md-search__form" name="search"><input type="text" class="md-search__input" name="query" placeholder="Søk" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active"> <label class="md-icon md-search__icon" for="__search"></label> <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">&#xE5CD;</button></form><div class="md-search__output"><div class="md-search__scrollwrap" data-md-scrollfix><div class="md-search-result" data-md-component="result"><div class="md-search-result__meta">Skriv søkeord</div><ol class="md-search-result__list"></ol></div></div></div></div></div></div></div></nav></header><div class="md-container"><main class="md-main"><div class="md-main__inner md-grid" data-md-component="container"><div class="md-sidebar md-sidebar--primary" data-md-component="navigation"><div class="md-sidebar__scrollwrap"><div class="md-sidebar__inner"><nav class="md-nav md-nav--primary" data-md-level="0"><label class="md-nav__title md-nav__title--site" for="__drawer"><a href="../../.." title="ProgRog" class="md-nav__button md-logo"><i class="md-icon">build</i></a>ProgRog</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../.." title="Velkommen" class="md-nav__link">Velkommen</a></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2"><label class="md-nav__link" for="nav-2">Micro Bit</label><nav class="md-nav" data-md-component="collapsible" data-md-level="1"><label class="md-nav__title" for="nav-2">Micro Bit</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../terning/" title="Lag en terning" class="md-nav__link">Lag en terning</a></li></ul></nav></li><li class="md-nav__item"><a href="../../../om/" title="Om ProgRog" class="md-nav__link">Om ProgRog</a></li><li class="md-nav__item"><a href="../../../kontakt/" title="Kontakt" class="md-nav__link">Kontakt</a></li></ul></nav></div></div></div><div class="md-sidebar md-sidebar--secondary" data-md-component="toc"><div class="md-sidebar__scrollwrap"><div class="md-sidebar__inner"><nav class="md-nav md-nav--secondary"><label class="md-nav__title" for="__toc">Innholdsfortegnelse</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="#introduksjon" title="Introduksjon" class="md-nav__link">Introduksjon</a></li><li class="md-nav__item"><a href="#steg-1-vis-en-firkant-pa-skjermen-nar-du-trykker-pa-to-knapper" title="Steg 1: Vis en firkant på skjermen når du trykker på to knapper" class="md-nav__link">Steg 1: Vis en firkant på skjermen når du trykker på to knapper</a></li><li class="md-nav__item"><a href="#steg-2-legge-til-to-spillere" title="Steg 2: Legge til to spillere" class="md-nav__link">Steg 2: Legge til to spillere</a></li><li class="md-nav__item"><a href="#steg-3-bruke-en-variabel-for-a-huske-en-nedtelling" title="Steg 3: Bruke en variabel for å huske en nedtelling" class="md-nav__link">Steg 3: Bruke en variabel for å huske en nedtelling</a></li><li class="md-nav__item"><a href="#steg-4-lage-reglene-for-nar-en-spiller-vinner-eller-taper" title="Steg 4: Lage reglene for når en spiller vinner eller taper" class="md-nav__link">Steg 4: Lage reglene for når en spiller vinner eller taper</a></li><li class="md-nav__item"><a href="#skjekke-om-spillet-kjrer" title="Skjekke om spillet kjører" class="md-nav__link">Skjekke om spillet kjører</a></li></ul></nav></div></div></div><div class="md-content"><article class="md-content__inner md-typeset"><h1 id="reaksjonsspill-for-to-spillere-med-micro-bit">Reaksjonsspill for to spillere med Micro Bit<a class="headerlink" href="#reaksjonsspill-for-to-spillere-med-micro-bit" title="Permanent link">&para;</a></h1>
+<h2 id="introduksjon">Introduksjon<a class="headerlink" href="#introduksjon" title="Permanent link">&para;</a></h2>
+<p>Dette er en oppskrift som passer for deg som har programmert litt på Micro Bit fra før. Oppskriften tar en time å gjennomføre. Du skal i denne oppskriften  skal du lage et reaksjonsspill. Du vil i reaksjonsspillet spille en-mot-en og den som tykker først på sin knapp når en firkant vises på skjermen vinner!</p>
+<div class="admonition abstract">
+<p class="admonition-title">Du vil lære</p>
+<ul>
+<li>å vise bilder på skjermen til Micro Biten</li>
+<li>å få Micro Biten til å gjøre noe når en knapp trykkes</li>
+<li>å bruke en variabel til å lage en nedtelling</li>
+<li>å kode regler for et spill</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Du trenger</p>
+<ul>
+<li>en Micro Bit</li>
+<li>en USB-kabel til overføring</li>
+<li>en batteripakke med to AAA-batterier</li>
+</ul>
+</div>
+<h2 id="steg-1-vis-en-firkant-pa-skjermen-nar-du-trykker-pa-to-knapper">Steg 1: Vis en firkant på skjermen når du trykker på to knapper<a class="headerlink" href="#steg-1-vis-en-firkant-pa-skjermen-nar-du-trykker-pa-to-knapper" title="Permanent link">&para;</a></h2>
+<p>Begynn med å gå til <a href="https://makecode.microbit.org/">MakeCode for micro:bit</a>.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> Start et nytt prosjekt ved å trykke på knappen <code>Nytt Prosjekt</code>. Da vil nettsiden der du programmerer Micro Biten åpnes. Gi prosjektet navnet <em>Reaksjonsspill</em> ved å skrive i tekstfeltet nederst på nettsiden.</p>
+<p>Nå skal vi kode! Det første vi vil er å  vise en firkant på skjermen til Micro Biten når du trykker A og B-knappene samtidig. Begynn med å dra en <code>gjenta for alltid</code>-kloss fra kategorien <code>Basis</code> og slipp den på lærretet til høyre på nettsiden.</p>
+<pre><code class="blocks">basic.forever(function () {
+})
+</code></pre>
+
+<p>Finn en <code>hvis sann</code>-kloss fra kategorien <code>Løkker</code>. Slipp <code>hvis sann</code>-klossen inni munnen til <code>gjenta for alltid</code>-klossen.</p>
+<pre><code class="blocks">basic.forever(function () {
+    if (true) {
+    }
+})
+</code></pre>
+
+<p>Etterpå tar du en <code>knapp A trykkes</code>-kloss fra kategorien <code>Inndata</code> og plasserer den på verdifeltet til <code>hvis sann</code>-klossen.</p>
+<pre><code class="blocks">basic.forever(function () {
+    if (input.buttonIsPressed(Button.A)) {
+    }
+})
+</code></pre>
+
+<p>Vi vil at Micro Biten skal gjøre noe når knappene A og B trykkes samtidig. For å få til dette må vi skifte <code>A</code> i <code>knapp A trykkes</code>-klossen til <code>A+B</code>. Trykk på bokstaven <code>A</code> på <code>knapp A trykkes</code>-klossen. Du vil da få opp en rullegardinmeny. Trykk på <code>A+B</code> i rullegardinmenyen for å velge den.</p>
+<pre><code class="blocks">basic.forever(function () {
+    if (input.buttonIsPressed(Button.AB)) {
+    }
+})
+</code></pre>
+
+<p>Når knappene <code>A</code> og <code>B</code> trykkes samtidig skal Micro Biten vise en liten firkant på skjermen. først finner du <code>vis ikon</code>-klossen i kategorien <code>Basis</code> og plasser den i «munnen» til <code>hvis</code>-klossen.</p>
+<pre><code class="blocks">basic.forever(function () {
+    if (input.buttonIsPressed(Button.AB)) {
+        basic.showIcon(IconNames.Heart)
+    }
+})
+</code></pre>
+
+<p>Trykk på bildet av hjertet på <code>vis ikon</code>-klossen. Du vil da få opp en rullegardinmeny som inneholder mange forskjellige ikoner. Trykk på bildet av en liten firkant helt nederst i rullegardinmenyen.</p>
+<pre><code class="blocks">basic.forever(function () {
+    if (input.buttonIsPressed(Button.AB)) {
+        basic.showIcon(IconNames.SmallSquare)
+    }
+})
+</code></pre>
+
+<p>Micro Biten skal vise den lille firkanten på skjermen på et tilfeldig tidspunkt når A og B knappene trykkes samtidig. For å få til dette må du først finne klossen <code>pause</code> i kategorien <code>Basis</code>. Plasser den over <code>vis ikon</code>-klossen.</p>
+<pre><code class="blocks">basic.forever(function () {
+    if (input.buttonIsPressed(Button.AB)) {
+        basic.pause(100)
+        basic.showIcon(IconNames.SmallSquare)
+    }
+})
+</code></pre>
+
+<p>Finn så <code>velg tilfeldig</code>-klossen i kategorien <code>Matematikk</code> og plasser den i verdifeltet til <code>pause</code>-klossen. Skift så verdien <code>10</code> i <code>velg tilfeldig</code>-klossen til <code>3000</code>.</p>
+<pre><code class="blocks">basic.forever(function () {
+    if (input.buttonIsPressed(Button.AB)) {
+        basic.pause(Math.randomRange(0, 3000))
+        basic.showIcon(IconNames.SmallSquare)
+    }
+})
+</code></pre>
+
+<div class="admonition info">
+<p class="admonition-title">Hva er et millisekund (ms)?</p>
+<p>Du la kanskje merke til at det står <code>(ms)</code> på <code>pause</code>-klossen? Datamaskiner arbeider veldig raskt og derfor, når vi skal fortelle den om hvor lenge den skal ta en pause, må vi bruke millisekund. Et millisekund er et tusenedelssekund. Det betyr at 3000 millisekunder er det samme som 3 sekunder.</p>
+</div>
+<p>Til slutt så må vi fortelle Micro Biten at skjermen skal tømmes hver gang vi trykker A og B knappene samtidig. Å tømme skjermen betyr å fjerne alt som vises på den. Hvis vi ikke forteller Micro Biten at skjermen skal tømmes så vil den lille firkanten vises hele tiden.</p>
+<p>Finn <code>tøm skjerm</code>-klossen. For å finne denne klossen må du først trykke på kategorien <code>Basis</code>. Når du har trykket på den vil det komme en ny kategori under <code>Basis</code> som heter <code>⋯ more</code>. Trykk på den nye kategorien for å finne <code>tøm skjerm</code>-klossen. Plasser <code>tøm skjerm</code>-klossen over <code>velg tilfeldig</code>-klossen.</p>
+<pre><code class="blocks">basic.forever(function () {
+    if (input.buttonIsPressed(Button.AB)) {
+        basic.clearScreen()
+        basic.pause(Math.randomRange(0, 3000))
+        basic.showIcon(IconNames.SmallSquare)
+    }
+})
+</code></pre>
+
+<div class="admonition success">
+<p class="admonition-title">Test programmet</p>
+<p>Til venstre er det bilde av en Micro Bit. Denne kan du bruke til å teste programmet ditt mens du koder. Trykk på den hvite sirkelen ved siden av <code>A+B</code>. Da tror Micro Biten at du trykker på A og B knappene samtidig og en liten firkant vil vises på skjermen. Firkanten vil dukke opp på forskjellige tidspunkt mellom 0 og 3 sekunder.</p>
+</div>
+<div class="admonition failure">
+<p class="admonition-title">Det virker ikke!</p>
+<p>Viser ikke den lille firkanten når du trykker på <code>A+B</code> knappen på Micro Biten? For å finne feilen bør du lese oppskriften om igjen og se nøye på bildene om du har glemt noe. En vanlig feil er å glemme å skifte <code>A</code> til <code>A+B</code> på <code>når trykkes</code>-klossen.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Utfordring</p>
+<p>Micro Biten viser nå den lille firkanten på et tilfeldig tidspunkt mellom 0 og 3 sekunder. Hvis du vil at Micro Biten skal vise den lille firkanten på et tilfeldig tidspunkt mellom 0 og 5 sekunder, hva tall skal da stå i stedet for 3000 i <code>velg tilfeldig</code>-klossen?</p>
+</div>
+<h2 id="steg-2-legge-til-to-spillere">Steg 2: Legge til to spillere<a class="headerlink" href="#steg-2-legge-til-to-spillere" title="Permanent link">&para;</a></h2>
+<p>Micro Biten viser nå en firkant på et tilfeldig tidspunkt når du trukker på A og B knappen samtidig. Nå skal vi kode reglene til reaksjonspillet. Vi vil at den som trykker først på sin knapp når firkanten vises på skjermen vinner spillet.</p>
+<p>Hent to <code>når knapp A trykkes</code>-klosser fra kategorien <code>Inndata</code>. Plasser disse klossene på lærretet. Skift <code>A</code> på den ene <code>når knapp A trykkes</code>-klossen til <code>B</code>.</p>
+<pre><code class="blocks">input.onButtonPressed(Button.A, function () {
+})
+input.onButtonPressed(Button.B, function () {
+})
+</code></pre>
+
+<p>Plasser en <code>vis bilde</code>-kloss i munnen på hver av de rosa <code>når trykkes</code>-klossene.</p>
+<pre><code class="blocks">input.onButtonPressed(Button.A, function () {
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . . . .
+        . . . . .
+        . . . . .
+        `)
+})
+input.onButtonPressed(Button.B, function () {
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . . . .
+        . . . . .
+        . . . . .
+        `)
+})
+</code></pre>
+
+<p>Tegn piler på <code>vis bilde</code>-klossene ved å trykke på de små firkantene.</p>
+<pre><code class="blocks">input.onButtonPressed(Button.A, function () {
+    basic.showLeds(`
+        . . # . .
+        . # . . .
+        # # # # #
+        . # . . .
+        . . # . .
+        `)
+})
+input.onButtonPressed(Button.B, function () {
+    basic.showLeds(`
+        . . # . .
+        . . . # .
+        # # # # #
+        . . . # .
+        . . # . .
+        `)
+})
+</code></pre>
+
+<div class="admonition success">
+<p class="admonition-title">Test programmet</p>
+<p>Test programmet ved å trykke på A+B på Micro Biten til venstre på skjermen. Hva skjer om du tryker på A-knappen før firkanten kommer frem på skjermen på Micro Biten? Prøv så å trykke på A-knappen og etterpå trykk på B-knappen.</p>
+</div>
+<h2 id="steg-3-bruke-en-variabel-for-a-huske-en-nedtelling">Steg 3: Bruke en variabel for å huske en nedtelling<a class="headerlink" href="#steg-3-bruke-en-variabel-for-a-huske-en-nedtelling" title="Permanent link">&para;</a></h2>
+<p>Når du testet programmet på slutten av forrige steg så la du kanskje merke til noe merkelig? Slik vi har kodet reaksjonspillet nå så har det ikke noe å si om firkanten har blitt vist på skjermen eller ikke. Pilen vil vise at du vant uansett. Dette må vi fikse.</p>
+<p>For å løse dette må vi lage en nedtelling som teller ned til når firkanten vises på skjermen. For å huske hvor mye som er igjen av tiden til firkanten vises på skjermen må vi bruke en variabel.</p>
+<p>Trykk på kategorien <code>Variabler</code> og så på den grå knappen <code>Lag en variabel</code>. Variabelen gir du navnet <code>nedtelling</code>. Dra så en <code>sett nedtelling til</code>-kloss ut i lærretet og plasser den over <code>pause</code>-klossen.</p>
+<pre><code class="blocks">basic.forever(function () {
+    if (input.buttonIsPressed(Button.AB)) {
+        basic.clearScreen()
+        nedtelling = 0
+        basic.pause(Math.randomRange(0, 3000))
+        basic.showIcon(IconNames.SmallSquare)
+    }
+})
+</code></pre>
+
+<div class="admonition info">
+<p class="admonition-title">Hva er en variabel?</p>
+<p>Variabler brukes i programmer for å huske noe til senere. En variabel kan være et tall eller en setning. Det er være mange grunner til at programmer må huske noe. En grunn for at et program skal huske et tall som skal brukes i et regnestykke senere i programmet.</p>
+</div>
+<p>Dra den lilla <code>velg tilfeldig tall</code>-klossen fra verdifeltet til <code>pause</code>-klossen og slipp den på verdifeltet til <code>sett nedtelling til</code>-klossen.</p>
+<pre><code class="blocks">basic.forever(function () {
+    if (input.buttonIsPressed(Button.AB)) {
+        basic.clearScreen()
+        nedtelling = Math.randomRange(0, 3000)
+        basic.pause(100)
+        basic.showIcon(IconNames.SmallSquare)
+    }
+})
+</code></pre>
+
+<p>Ta en <code>hvis sann</code>-kloss fra kategorien <code>Logikk</code> og plasser den under <code>vis ikon</code>-klossen, men pass på at <code>hvis</code>-klossen er inni munnen til den blå <code>gjenta for alltid</code>-klossen.</p>
+<pre><code class="blocks">basic.forever(function () {
+    if (input.buttonIsPressed(Button.AB)) {
+        basic.clearScreen()
+        nedtelling = Math.randomRange(0, 3000)
+        basic.pause(100)
+        basic.showIcon(IconNames.SmallSquare)
+        if (true) {
+
+        }
+    }
+})
+</code></pre>
+
+<p>Finn så en <code>0 = 0</code>-kloss fra kategorien <code>Logikk</code> og plasser den over <code>sann</code> i <code>hvis sann</code>-klossen.</p>
+<pre><code class="blocks">let nedtelling = 0
+basic.forever(function () {
+    if (input.buttonIsPressed(Button.AB)) {
+        basic.clearScreen()
+        nedtelling = Math.randomRange(0, 3000)
+        basic.pause(100)
+        basic.showIcon(IconNames.SmallSquare)
+        if (0 == 0) {
+
+        }
+    }
+})
+</code></pre>
+
+<p>Trykk på <code>=</code> på <code>0 = 0</code>-klossen for å få frem rullegardinmenyen og skift tegnet til <code>&gt;</code>.</p>
+<pre><code class="blocks">let nedtelling = 0
+basic.forever(function () {
+    if (input.buttonIsPressed(Button.AB)) {
+        basic.clearScreen()
+        nedtelling = Math.randomRange(0, 3000)
+        basic.pause(100)
+        basic.showIcon(IconNames.SmallSquare)
+        if (0 &gt; 0) {
+
+        }
+    }
+})
+</code></pre>
+
+<p>Ta en <code>nedtelling</code>-kloss fra <code>Variabler</code> og plasser den på <code>0</code> som er til venstre på <code>0 = 0</code>-klossen.</p>
+<pre><code class="blocks">let nedtelling = 0
+basic.forever(function () {
+    if (input.buttonIsPressed(Button.AB)) {
+        basic.clearScreen()
+        nedtelling = Math.randomRange(0, 3000)
+        basic.pause(100)
+        basic.showIcon(IconNames.SmallSquare)
+        if (nedtelling &gt; 0) {
+
+        }
+    }
+})
+</code></pre>
+
+<p>Flytt <code>pause</code>-klossen og plasser den i «munnen» til <code>hvis nedtelling &gt; 0</code>-klossen. Skift verdien i verdifeltet på <code>pause</code>-klossen til <code>1</code>. Etterpå flytter du <code>vis ikon</code>-klossen under <code>hvis nedtelling &gt; 0</code>-klossen.</p>
+<div class="admonition tip">
+<p class="admonition-title">Hvordan flytte kun en kloss</p>
+<p>Du kan flytte en kloss som henger fast andre klosser. For å gjøre det må du holde nede <code>ctrl</code>-tasten på tastaturet når du flytter klossen.</p>
+</div>
+<pre><code class="blocks">let nedtelling = 0
+basic.forever(function () {
+    if (input.buttonIsPressed(Button.AB)) {
+        basic.clearScreen()
+        nedtelling = Math.randomRange(0, 3000)
+        if (nedtelling &gt; 0) {
+            basic.pause(100)
+        }
+        basic.showIcon(IconNames.SmallSquare)
+    }
+})
+</code></pre>
+
+<p>Til slutt henter du en <code>endre nedtelling med</code>-kloss fra variabler og plasserer den under <code>pause</code>-klossen. Pass på at både <code>pause</code>-klossen og <code>endre nedtelling med</code>-klossen er inni «munnen» til <code>hvis nedtelling &gt; 0</code>-klossen.</p>
+<pre><code class="blocks">let nedtelling = 0
+basic.forever(function () {
+    if (input.buttonIsPressed(Button.AB)) {
+        basic.clearScreen()
+        nedtelling = Math.randomRange(0, 3000)
+        if (nedtelling &gt; 0) {
+            basic.pause(100)
+            nedtelling += 1
+        }
+        basic.showIcon(IconNames.SmallSquare)
+    }
+})
+</code></pre>
+
+<p>Endre verdien i verdifeltet til <code>pause</code>-klossen til 1 og verditeltet til <code>endre nedtelling med</code>-klossen til -1.</p>
+<pre><code class="blocks">let nedtelling = 0
+basic.forever(function () {
+    if (input.buttonIsPressed(Button.AB)) {
+        basic.clearScreen()
+        nedtelling = Math.randomRange(0, 3000)
+        if (nedtelling &gt; 0) {
+            basic.pause(1)
+            nedtelling += -1
+        }
+        basic.showIcon(IconNames.SmallSquare)
+    }
+})
+</code></pre>
+
+<div class="admonition question">
+<p class="admonition-title">Hvordan fungerer nedtellingen?</p>
+<p>Vi bruker variabelen <code>nedtelling</code> til å huske et tilfeldig valgt tall mellom 0 og 3000. La oss si at tallet 10 var det tilfeldige tallet som ble valgt.</p>
+<p>I neste steg av koden går programmet inn i en <code>gjenta</code>-kloss. I begynnelsen av denne klossen skjekker <code>gjenta</code>-klossen om variabelen <code>nedtelling</code> er større enn 0. Variabelen <code>nedtelling</code> er 10, derfor fortsetter programmet inn i «munnen» til <code>gjenta</code>-klossen. Her tar programmet en pause på 1 millisekund. Etter pausen tar programmet og forandrer <code>nedtelling</code>med -1. Variabelen <code>nedtelling</code> er nå tallet 9.</p>
+<p>I det siste steget går programmet tilbake til toppen av <code>gjenta</code>-klossen og skjekker om <code>nedtelling</code> er større enn 0. Variabelen <code>nedtelling</code> er nå 9, så den gjentar koden inni «munnen» på <code>gjenta</code>-klossen på ny.</p>
+<p>Dette fortsetter helt til variabelen <code>nedtelling</code> er 0. Da vil programmet gå videre i koden og vise firkanten på skjermen som er plassert under <code>gjenta</code>-klossen.</p>
+<p>Fordi variabelen <code>nedtelling</code> begynte som tallet 10, så blir koden inni <code>gjenta</code>-klossen gjentatt ti ganger før <code>nedtelling</code> er blitt 0. I løpet disse ti gjentagelsene har også programmet tatt ti pauser på 1 millisekund hver. Det betyr at vi har laget en nedtelling som totalt varer i 10 millisekund.</p>
+</div>
+<h2 id="steg-4-lage-reglene-for-nar-en-spiller-vinner-eller-taper">Steg 4: Lage reglene for når en spiller vinner eller taper<a class="headerlink" href="#steg-4-lage-reglene-for-nar-en-spiller-vinner-eller-taper" title="Permanent link">&para;</a></h2>
+<p>I denne delen skal vi kode reglene for reaksjonspillet ved å bruke klosser fra <code>Logikk</code> kategorien. Vi ønsker at når en spiller er den første til å trykke på sin knapp når firkanten vises på skjermen vinner spillet.</p>
+<p>Vi ønsker også å kode en regel som gjør at hvis en spiller trykker på sin knapp før firkanten er blitt vist, så taper den spilleren som trykket.</p>
+<p>Begynn med å finne en <code>hvis ellers</code>-kloss fra kategorien <code>Logikk</code>. Plasser klossen inni «munnen» til <code>når knapp A trykkes</code>-klossen. Pass på at <code>vis skjerm</code>-klossen plasseres inni «munnen» under <code>hvis</code>-klossen.</p>
+<pre><code class="blocks">input.onButtonPressed(Button.A, function () {
+    if (true) {
+        basic.showLeds(`
+            . . # . .
+            . # . . .
+            # # # # #
+            . # . . .
+            . . # . .
+            `)
+    } else {
+
+    }
+})
+</code></pre>
+
+<p>Finn å en <code>0 = 0</code>-kloss fra <code>Logikk</code> og plasser den på verdifeltet til <code>hvis ellers</code>-klossen.</p>
+<pre><code class="blocks">input.onButtonPressed(Button.A, function () {
+    if (0 == 0) {
+        basic.showLeds(`
+            . . # . .
+            . # . . .
+            # # # # #
+            . # . . .
+            . . # . .
+            `)
+    } else {
+
+    }
+})
+</code></pre>
+
+<p>Plasser så <code>nedtelling</code>-klossen fra variabler på verdifeltet til venstre for er lik i <code>0 = 0</code>-klossen.</p>
+<pre><code class="blocks">input.onButtonPressed(Button.A, function () {
+    if (nedtelling == 0) {
+        basic.showLeds(`
+            . . # . .
+            . # . . .
+            # # # # #
+            . # . . .
+            . . # . .
+            `)
+    } else {
+        basic.showLeds(`
+            . . # . .
+            . . . # .
+            # # # # #
+            . . . # .
+            . . # . .
+            `)
+    }
+})
+</code></pre>
+
+<p>Gjenta så Steg 5 fra begynnelsen for <code>når knapp B trykkes</code>-klossen.</p>
+<pre><code class="blocks">input.onButtonPressed(Button.B, function () {
+    if (nedtelling == 0) {
+        basic.showLeds(`
+            . . # . .
+            . . . # .
+            # # # # #
+            . . . # .
+            . . # . .
+            `)
+    } else {
+        basic.showLeds(`
+            . . # . .
+            . # . . .
+            # # # # #
+            . # . . .
+            . . # . .
+            `)
+    }
+})
+</code></pre>
+
+<div class="admonition warning">
+<p class="admonition-title">Pass på!</p>
+<p>Husk at pilene er omvendt i <code>når knapp B trykkes</code>-klossen sammenlignet med <code>når knapp A trykkes</code>-klossen.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Test programmet</p>
+</div>
+<h2 id="skjekke-om-spillet-kjrer">Skjekke om spillet kjører<a class="headerlink" href="#skjekke-om-spillet-kjrer" title="Permanent link">&para;</a></h2>
+<div class="admonition success">
+<p class="admonition-title">Test programmet</p>
+<p>Overfør det ferdige programmet til Micro Biten ved å bruke en USB-kabel eller Blåtann. Spør en lærer om hjelp hvis du er usikker. Rist på terningen din og sjekk at programmet fungerer riktig.</p>
+</div>
+<p>Gratulerer, du har nå laget et reaksjonspill. Start spillet med å trykke på A og B-knappene på Micro Biten samtidig. Hvem er raskest av deg og en venn?</p>
+<div class="admonition question">
+<p class="admonition-title">Utfordring</p>
+<p>Spillet vårt kan få flere funksjoner. Se om du kan legge til en nedtelling før spillet begynner på egenhånd. Eller se om du klarer å programmere ved å bruke boolske variabler slik at hvis en spiller trykker for tidlig så taper han eller henne.</p>
+</div>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Det finnes mange forskjellige programmeringssider og -apper for Micro Bit. Bruk den siden eller appen som du har lært i undervisningen.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div></article></div></div></main><footer class="md-footer"><div class="md-footer-meta md-typeset"><div class="md-footer-meta__inner md-grid"><div class="md-footer-copyright"><div class="md-footer-copyright__highlight">Creative Commons BY-SA 4.0</div>powered by <a href="https://www.mkdocs.org">MkDocs</a> and <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a></div></div></div></footer></div><script src="../../../assets/javascripts/application.b260a35d.js"></script><script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script><script src="../../../assets/javascripts/lunr/lunr.no.js"></script><script src="../../../assets/javascripts/lunr/lunr.multi.js"></script><script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script><script src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script src="../../../javascripts/embed.js"></script></body></html>
