@@ -1,0 +1,55 @@
+# Project information
+site_name: 'ProgRog'
+site_description: 'Lær å programmere på Micro Bit'
+site_author: 'Njord A. Solberg'
+
+# Copyright
+copyright: 'Creative Commons BY-SA 4.0'
+
+# Naigation
+nav:
+- 'Velkommen': 'index.md'
+- Micro Bit:
+  - 'Lag en terning': 'prosjekter/microbit/terning.md'
+#  - 'Reaksjonsspill for to spillere': 'prosjekter/microbit/reaksjonsspill.md'
+- 'Om ProgRog': 'om.md'
+- 'Kontakt': 'kontakt.md'
+
+# Configuration
+theme:
+  name: 'material'
+  language: 'no'
+  palette:
+    primary: 'teal'
+    accent: 'teal'
+  logo:
+    icon: 'build'
+  favicon: 'images/favicon.png'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  feature:
+    tabs: false
+
+# Customization
+extra:
+  search:
+    language: 'no, en'
+extra_javascript:
+  - https://code.jquery.com/jquery-3.4.1.min.js
+  - javascripts/embed.js
+extra_css:
+  - 'stylesheets/extra.css'
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - footnotes
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.details
+  - pymdownx.magiclink
+  - pymdownx.smartsymbols
+  - toc:
+      permalink: true
+  - attr_list
