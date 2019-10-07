@@ -9,10 +9,11 @@ copyright: 'Creative Commons BY-SA 4.0'
 # Naigation
 nav:
 - 'Velkommen': 'index.md'
-- Micro Bit:
-  - 'Lag en terning': 'prosjekter/microbit/terning.md'
-#  - 'Reaksjonsspill for to spillere': 'prosjekter/microbit/reaksjonsspill.md'
-- 'Om ProgRog': 'om.md'
+- Oppskrifter:
+  - Micro Bit:
+    - 'Lag en terning': 'prosjekter/microbit/terning.md'
+#   - 'Reaksjonsspill for to spillere': 'prosjekter/microbit/reaksjonsspill.md'
+- 'Om': 'om.md'
 - 'Kontakt': 'kontakt.md'
 
 # Configuration
