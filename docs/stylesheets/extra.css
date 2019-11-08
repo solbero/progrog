@@ -36,3 +36,13 @@ img[src*="#portrait"] {
   color: white;
   background-color: #DC163C;
 }
+
+.md-typeset .control {
+  color: white;
+  background-color: #333333;
+}
+
+.md-typeset .logic {
+  color: white;
+  background-color: #00a4a6;
+}

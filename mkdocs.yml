@@ -12,7 +12,7 @@ nav:
 - Oppskrifter:
   - Micro Bit:
     - 'Lag en terning': 'prosjekter/microbit/terning.md'
-#   - 'Reaksjonsspill for to spillere': 'prosjekter/microbit/reaksjonsspill.md'
+    - 'Lag et reaksjonsspill': 'prosjekter/microbit/reaksjonsspill.md'
 - 'Om': 'om.md'
 - 'Kontakt': 'kontakt.md'
 

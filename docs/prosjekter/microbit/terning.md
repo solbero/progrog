@@ -6,7 +6,6 @@
 
 Dette er en oppskrift som passer deg som er nybegynner i Micro Bit. Den tar omtrent en halvtime å gjennomføre. I denne oppskriften vil du programmere Micro Biten til å bli en terning som du kan bruke til å spille brettspillet *Snakes and Ladders*.
 
-
 !!! abstract "Du vil lære"
     * å få Micro Biten til å gjøre noe når den ristes
     * å lage animasjoner på skjermen til Micro Biten

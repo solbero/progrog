@@ -1,361 +1,199 @@
-# Reaksjonsspill for to spillere med Micro Bit
+# Lag et reaksjonsspill med Micro Bit
+
+<iframe width="768" height="432" src="https://www.youtube.com/embed/obrNe2_qAKU" frameborder="0" modestbranding="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Introduksjon
 
-Dette er en oppskrift som passer for deg som har programmert litt på Micro Bit fra før. Oppskriften tar en time å gjennomføre. Du skal i denne oppskriften  skal du lage et reaksjonsspill. Du vil i reaksjonsspillet spille en-mot-en og den som tykker først på sin knapp når en firkant vises på skjermen vinner!
+Dette er en oppskrift som passer for deg som har programmert litt på Micro Bit fra før. Oppskriften tar omtrent en time å gjennomføre. Du skal i denne oppskriften lage et reaksjonsspill for to spillere.
 
 !!! abstract "Du vil lære"
-    * å vise bilder på skjermen til Micro Biten
-    * å få Micro Biten til å gjøre noe når en knapp trykkes
-    * å bruke en variabel til å lage en nedtelling
-    * å kode regler for et spill
+    * å vise piler på skjermen til Micro Biten når en knapp trykkes
+    * å lage en nøyaktig nedtelling
+    * å programmere spilleregler
+    * å bruke en variabel til å huske om noe har skjedd
 
 !!! info "Du trenger"
     * en Micro Bit
     * en USB-kabel til overføring
     * en batteripakke med to AAA-batterier
 
-## Steg 1: Vis en firkant på skjermen når du trykker på to knapper
+## Steg 1: Vis en pil på skjermen til Micro Biten når en knapp trykkes
 
-Begynn med å gå til [MakeCode for micro:bit](https://makecode.microbit.org/).[^1] Start et nytt prosjekt ved å trykke på knappen `Nytt Prosjekt`. Da vil nettsiden der du programmerer Micro Biten åpnes. Gi prosjektet navnet *Reaksjonsspill* ved å skrive i tekstfeltet nederst på nettsiden.
+I dette steget skal vi fortelle Micro Biten at den skal vise en pil på skjermen når en knapp trykkes. Pilen skal peke mot knappen som ble trykt.
 
-Nå skal vi kode! Det første vi vil er å  vise en firkant på skjermen til Micro Biten når du trykker A og B-knappene samtidig. Begynn med å dra en `gjenta for alltid`-kloss fra kategorien `Basis` og slipp den på lærretet til høyre på nettsiden.
+* Begynn med å åpne nettsiden <a href="https://makecode.microbit.org/" target="_blank">MakeCode for micro:bit</a>.
+
+* Trykk på knappen `Nytt Prosjekt` for å starte et nytt prosjekt.
+
+* Gi prosjektet navnet *Reaksjonsspill for to spillere* ved å skrive i tekstfeltet nederst på siden.
+
+* Slett alle klossene som ligger i lærretet. Du sletter en kloss ved å dra den til venstre over kategoriene. Slipp klossen når søplespannet vises for å slette den.
+
+Da er vi klar til å begynne å kode! Først skal vi lage pilen som peker mot A-knappen når den trykkes.
+
+* Dra klossen `når knapp A trykkes`{:.input} fra kategorien `Inndata`{:.input} og slipp den et sted på lærretet.
+
+* Finn klossen `vis bilde`{:.basic} i kategorien `Basis`{:.basic}. Ta tak i klossen og plasser den i munnen til `når A trykkes`{:.input}.
+
+* Tegn en pil på `vis bilde`{:.basic}-klossen ved å trykke på de små firkantene. Pass på at pilen peker til venstre!
 
 ```blocks
-basic.forever(function () {
+input.onButtonPressed(Button.A, function () {
+    basic.showLeds(`
+        . . # . .
+        . # . . .
+        # # # # #
+        . # . . .
+        . . # . .
+        `)
 })
 ```
 
-Finn en `hvis sann`-kloss fra kategorien `Løkker`. Slipp `hvis sann`-klossen inni munnen til `gjenta for alltid`-klossen.
+Da skal vi lage pilen som peker mot B-knappen når den trykkes.
+
+* Dra klossen `når knapp A trykkes`{:.input} fra kategorien `Inndata`{:.input} og slipp den et sted på lærretet. Trykk på `A`{:.input} på `når knapp A trykkes`{:.input} og velg `B`{:.input} fra rullegardinmenyen.
+
+* Finn klossen `vis bilde`{:.basic} og plasser den i munnen til `når B trykkes`{:.input}.
+
+* Tegn en pil som peker mot høyre på `vis bilde`{:.basic}-klossen ved å trykke på de små firkantene.
 
 ```blocks
-basic.forever(function () {
-    if (true) {
-    }
+input.onButtonPressed(Button.A, function () {
+    basic.showLeds(`
+        . . # . .
+        . # . . .
+        # # # # #
+        . # . . .
+        . . # . .
+        `)
+})
+input.onButtonPressed(Button.B, function () {
+    basic.showLeds(`
+        . . # . .
+        . . . # .
+        # # # # #
+        . . . # .
+        . . # . .
+        `)
 })
 ```
 
-Etterpå tar du en `knapp A trykkes`-kloss fra kategorien `Inndata` og plasserer den på verdifeltet til `hvis sann`-klossen.
-
-```blocks
-basic.forever(function () {
-    if (input.buttonIsPressed(Button.A)) {
-    }
-})
-```
-
-Vi vil at Micro Biten skal gjøre noe når knappene A og B trykkes samtidig. For å få til dette må vi skifte `A` i `knapp A trykkes`-klossen til `A+B`. Trykk på bokstaven `A` på `knapp A trykkes`-klossen. Du vil da få opp en rullegardinmeny. Trykk på `A+B` i rullegardinmenyen for å velge den.
-
-```blocks
-basic.forever(function () {
-    if (input.buttonIsPressed(Button.AB)) {
-    }
-})
-```
-
-Når knappene `A` og `B` trykkes samtidig skal Micro Biten vise en liten firkant på skjermen. først finner du `vis ikon`-klossen i kategorien `Basis` og plasser den i «munnen» til `hvis`-klossen.
-
-```blocks
-basic.forever(function () {
-    if (input.buttonIsPressed(Button.AB)) {
-        basic.showIcon(IconNames.Heart)
-    }
-})
-```
-
-Trykk på bildet av hjertet på `vis ikon`-klossen. Du vil da få opp en rullegardinmeny som inneholder mange forskjellige ikoner. Trykk på bildet av en liten firkant helt nederst i rullegardinmenyen.
-
-```blocks
-basic.forever(function () {
-    if (input.buttonIsPressed(Button.AB)) {
-        basic.showIcon(IconNames.SmallSquare)
-    }
-})
-```
-
-Micro Biten skal vise den lille firkanten på skjermen på et tilfeldig tidspunkt når A og B knappene trykkes samtidig. For å få til dette må du først finne klossen `pause` i kategorien `Basis`. Plasser den over `vis ikon`-klossen.
-
-```blocks
-basic.forever(function () {
-    if (input.buttonIsPressed(Button.AB)) {
-        basic.pause(100)
-        basic.showIcon(IconNames.SmallSquare)
-    }
-})
-```
-
-Finn så `velg tilfeldig`-klossen i kategorien `Matematikk` og plasser den i verdifeltet til `pause`-klossen. Skift så verdien `10` i `velg tilfeldig`-klossen til `3000`.
-
-```blocks
-basic.forever(function () {
-    if (input.buttonIsPressed(Button.AB)) {
-        basic.pause(Math.randomRange(0, 3000))
-        basic.showIcon(IconNames.SmallSquare)
-    }
-})
-```
-
-!!! info "Hva er et millisekund (ms)?"
-    Du la kanskje merke til at det står `(ms)` på `pause`-klossen? Datamaskiner arbeider veldig raskt og derfor, når vi skal fortelle den om hvor lenge den skal ta en pause, må vi bruke millisekund. Et millisekund er et tusenedelssekund. Det betyr at 3000 millisekunder er det samme som 3 sekunder.
-
-Til slutt så må vi fortelle Micro Biten at skjermen skal tømmes hver gang vi trykker A og B knappene samtidig. Å tømme skjermen betyr å fjerne alt som vises på den. Hvis vi ikke forteller Micro Biten at skjermen skal tømmes så vil den lille firkanten vises hele tiden.
-
-Finn `tøm skjerm`-klossen. For å finne denne klossen må du først trykke på kategorien `Basis`. Når du har trykket på den vil det komme en ny kategori under `Basis` som heter `⋯ more`. Trykk på den nye kategorien for å finne `tøm skjerm`-klossen. Plasser `tøm skjerm`-klossen over `velg tilfeldig`-klossen.
-
-```blocks
-basic.forever(function () {
-    if (input.buttonIsPressed(Button.AB)) {
-        basic.clearScreen()
-        basic.pause(Math.randomRange(0, 3000))
-        basic.showIcon(IconNames.SmallSquare)
-    }
-})
-```
 
 !!! success "Test programmet"
-    Til venstre er det bilde av en Micro Bit. Denne kan du bruke til å teste programmet ditt mens du koder. Trykk på den hvite sirkelen ved siden av `A+B`. Da tror Micro Biten at du trykker på A og B knappene samtidig og en liten firkant vil vises på skjermen. Firkanten vil dukke opp på forskjellige tidspunkt mellom 0 og 3 sekunder.
+    Til venstre er det bilde av en Micro Bit. Denne kan du bruke til å teste programmet ditt mens du koder. Trykk på `A`-knappen, da skal det vises en pil på skjermen som peker mot venstre. Etterpå prøver du å trykke på `B`-knappen. Da skal det vises en pil mot høyre.
 
 !!! failure "Det virker ikke!"
-    Viser ikke den lille firkanten når du trykker på `A+B` knappen på Micro Biten? For å finne feilen bør du lese oppskriften om igjen og se nøye på bildene om du har glemt noe. En vanlig feil er å glemme å skifte `A` til `A+B` på `når trykkes`-klossen.
+    Peker ikke pilene mot knappene når du trykker på dem? Da er noe galt i koden din. For å finne feilen bør du lese oppskriften om igjen og se nøye på bildene.
 
-!!! question "Utfordring"
-    Micro Biten viser nå den lille firkanten på et tilfeldig tidspunkt mellom 0 og 3 sekunder. Hvis du vil at Micro Biten skal vise den lille firkanten på et tilfeldig tidspunkt mellom 0 og 5 sekunder, hva tall skal da stå i stedet for 3000 i `velg tilfeldig`-klossen?
+## Steg 2: Lag en tilfeldig nedtelling
 
-## Steg 2: Legge til to spillere
+Vi vil at en prikk skal vises på skjermen til Micro Biten når reaksjonspillet begynner. På et tilfeldig tidspunkt mellom null til fem sekunder skal denne prikken bli til en firkant. For å få til dette må vi lage en tilfeldig nedtelling.
 
-Micro Biten viser nå en firkant på et tilfeldig tidspunkt når du trukker på A og B knappen samtidig. Nå skal vi kode reglene til reaksjonspillet. Vi vil at den som trykker først på sin knapp når firkanten vises på skjermen vinner spillet.
+For å lage en tilfeldig nedtelling må reaksjonsspillet huske tre tidspunkter:
 
-Hent to `når knapp A trykkes`-klosser fra kategorien `Inndata`. Plasser disse klossene på lærretet. Skift `A` på den ene `når knapp A trykkes`-klossen til `B`.
+1. Når nedtellingen starter
+2. Hvor lenge nedtellingen varer
+3. Når nedtellingen slutter
+
+Disse tre tidspunktene skal reaksjonsspillet huske med å bruke tre variabler. Vi begynner med å lage variablene vi trenger.
+
+Legg merke til at klossene fra forrige steg vil fortsatt være i lærretet ditt på MakeCode. De skal ikke slettes selv om kun klossene for dette steget vises under.
+
+* Ta klossen `ved start`{:.basic} fra kategorien `Basis`{:.basic} og plasser den på lærretet.
+* Trykk på kategorien `Variabler`{:.variables} og deretter på knappen `Lag en variabel`. I tekstfeltet som vises på skjermen skriver du *starttid*.
+* Plasser klossen `sett starttid til 0`{:.variables} i munnen til `ved start`{:.basic}.
 
 ```blocks
-input.onButtonPressed(Button.A, function () {
-})
-input.onButtonPressed(Button.B, function () {
-})
+let starttid = 0
 ```
 
-Plasser en `vis bilde`-kloss i munnen på hver av de rosa `når trykkes`-klossene.
+* Lag to variabler til i `Variabel`{:.variables}-kategorien ved å trykke på `Lag en variabel`. Den ene variabelen skal hete *ventetid* og den andre skal hete *sluttid*.
+* Plasser `sett ventetid til 0`{:.variables} og `sett sluttid til 0`{:.variables} i munnen til `når starter`{:.variables}.
+
+Klossene `sett … til 0`{:.variables} og `endre … med 0`{:.variables} i kategorien `Variabler`{:.variables} viser alltid navnet til den siste variabelen du laget. For å skifte navnet på en variabel-kloss må du dra klossen ut i lærretet og deretter trykke på firkanten som er rundt navnet på klossen. I rullegradinmenyen som da vises vil du kunne velge riktig variabel.
 
 ```blocks
-input.onButtonPressed(Button.A, function () {
-    basic.showLeds(`
-        . . . . .
-        . . . . .
-        . . . . .
-        . . . . .
-        . . . . .
-        `)
-})
-input.onButtonPressed(Button.B, function () {
-    basic.showLeds(`
-        . . . . .
-        . . . . .
-        . . . . .
-        . . . . .
-        . . . . .
-        `)
-})
+let starttid = 0
+let ventetid = 0
+let sluttid = 0
 ```
 
-Tegn piler på `vis bilde`-klossene ved å trykke på de små firkantene.
+* Finn klossen `kjøretid (ms)`{:.input} og plasser den på verdifeltet til `sett starttid til 0`{:.variables}. For å finne denne klossen må du først trykke på kategorien `Inndata`{:.input}. Når du har trykket på kategorien vil det dukke opp en kategori under `Inndata`{:.input} som heter `⋯ more`{:.input}. Trykk på den nye kategorien for å finne `kjøretid (ms)`{:.input}.
 
 ```blocks
-input.onButtonPressed(Button.A, function () {
-    basic.showLeds(`
-        . . # . .
-        . # . . .
-        # # # # #
-        . # . . .
-        . . # . .
-        `)
+let starttid = input.runningTime()
+let ventetid = 0
+let sluttid = 0
+```
+
+* Finn klossen `velg tilfeldig 0 til 10`{:.math} fra kategorien `Matematikk`{:.math}. Plasser den i verdifeltet til `sett ventetid til 0`{:.variables}.
+* Skift tallet 10 til 5000 på `velg tilfeldig 0 til 10`{:.math}-klossen. Klossen `velg tilfeldig 0 til 5000`{:.math} vil nå velge en tilfeldig ventetid mellom 0 og 5000 millisekunder. Et millisekund er et tusenedelssekund. Det betyr at 5000 millisekunder er det samme som 5 sekunder.
+
+```blocks
 })
-input.onButtonPressed(Button.B, function () {
-    basic.showLeds(`
-        . . # . .
-        . . . # .
-        # # # # #
-        . . . # .
-        . . # . .
-        `)
-})
+let starttid = input.runningTime()
+let ventetid = Math.randomRange(0, 5000)
+let sluttid = 0
+```
+
+Nå skal vi regne ut sluttiden for nedtellingen. Den regner vi ut ved å summere `starttid`{:.variables} og `ventetid`{:.variables} variablene.
+
+* Ta klossen `0 + 0`{:.math} fra `Matematikk`{:.math}-kategorien og plasser den på verdifetet til `sett sluttid til 0`{:.math}.
+* Plasser variabelene `starttid`{:.variables} og `ventetid`{:.variables} på verdifeltene til klossen `0 = 0`{:.math}.
+
+```blocks
+let starttid = input.runningTime()
+let ventetid = Math.randomRange(0, 5000)
+let sluttid = starttid + ventetid
+```
+
+Til slutt skal vi lage en prikken som skifter til en firkant på skjermen når ventetiden er løpt ut.
+
+* Begynn med å plassere to `vis bilde`{:.basic}-klosser i munnen til `når starter klossen`{:.basic}. Pass på at begge klossene plasseres under variablene.
+* Tegn en prikk på den øverste `vis bilde`{:.basic}-klossen og en firkant på den nederste `vis bilde`{:.basic}-klossen.
+* Plasser deretter klossen `pause (ms) 0`{:.basic} fra `Basis`{:.basic}-kategorien mellom de to `vis bilde`{:.basic}-klossene.
+* Plasser variabelen `ventetid`{:.variables} på verdifeltet til `pause (ms) 0`{:.basic}-klossen.
+
+```blocks
+let starttid = input.runningTime()
+let ventetid = Math.randomRange(0, 5000)
+let sluttid = starttid + ventetid
+basic.showLeds(`
+    . . . . .
+    . . . . .
+    . . # . .
+    . . . . .
+    . . . . .
+    `)
+basic.pause(ventetid)
+basic.showLeds(`
+    . . . . .
+    . # # # .
+    . # . # .
+    . # # # .
+    . . . . .
+    `)
 ```
 
 !!! success "Test programmet"
-    Test programmet ved å trykke på A+B på Micro Biten til venstre på skjermen. Hva skjer om du tryker på A-knappen før firkanten kommer frem på skjermen på Micro Biten? Prøv så å trykke på A-knappen og etterpå trykk på B-knappen.
+    Micro Biten til venstre på MakeCode skal nå vise en prikk som blir til en firkant på et tilfeldig tidspunkt. Trykk på `🔃` under Micro Biten for å kjøre koden igjen. Tiden det tar før prikken blir en forkant skal være ulik hver gang du trykker på `🔃`.
 
-## Steg 3: Bruke en variabel for å huske en nedtelling
+!!! failure "Det virker ikke!"
+    Hvis ikke prikken blir til en firkant på Micro Biten så er noe galt i koden din. For å finne feilen bør du se nøye på bildene i oppskriften og sammenligne dem med din kode. En vanlig feil er å plassere gale klosser på verdifeltene til `sett … til`{:.variables}-klossene
 
-Når du testet programmet på slutten av forrige steg så la du kanskje merke til noe merkelig? Slik vi har kodet reaksjonspillet nå så har det ikke noe å si om firkanten har blitt vist på skjermen eller ikke. Pilen vil vise at du vant uansett. Dette må vi fikse.
+!!! question "Utfordring"
+    Prikken vil bli til en firkant på skjermen til Micro Biten etter at det har gått fra 0 til 5 sekunder. Hva må du skifte i koden din hvis du vil at firkanten skal vises når det har gått fra 2 til 8 sekunder?
 
-For å løse dette må vi lage en nedtelling som teller ned til når firkanten vises på skjermen. For å huske hvor mye som er igjen av tiden til firkanten vises på skjermen må vi bruke en variabel.
+## Steg 3: Lage reglene for når en spiller vinner eller taper
 
-Trykk på kategorien `Variabler` og så på den grå knappen `Lag en variabel`. Variabelen gir du navnet `nedtelling`. Dra så en `sett nedtelling til`-kloss ut i lærretet og plasser den over `pause`-klossen.
+Nå må vi lage noen regler for reaksjonsspillet. Reglene forteller spillet hvem som vinner eller taper. For å få til dette må bruke to regler:
 
-```blocks
-basic.forever(function () {
-    if (input.buttonIsPressed(Button.AB)) {
-        basic.clearScreen()
-        nedtelling = 0
-        basic.pause(Math.randomRange(0, 3000))
-        basic.showIcon(IconNames.SmallSquare)
-    }
-})
-```
+1. Hvis en spiller trykker på sin knapp etter at firkanten vises på skjermen så vinner spilleren som trykket knappen.
+2. Hvis en spiller trykker på sin knapp før firkanten vises på skjermen så vinner så taper spilleren som trykket knappen.
 
-!!! info "Hva er en variabel?"
-    Variabler brukes i programmer for å huske noe til senere. En variabel kan være et tall eller en setning. Det er være mange grunner til at programmer må huske noe. En grunn for at et program skal huske et tall som skal brukes i et regnestykke senere i programmet.
+Først skal vi programmere den første regelen. Dette er regelen som forteller reaksjonspillet at en spiller har trykket på sin knapp etter at firkanten er dukket opp på skjermen.
 
-Dra den lilla `velg tilfeldig tall`-klossen fra verdifeltet til `pause`-klossen og slipp den på verdifeltet til `sett nedtelling til`-klossen.
-
-```blocks
-basic.forever(function () {
-    if (input.buttonIsPressed(Button.AB)) {
-        basic.clearScreen()
-        nedtelling = Math.randomRange(0, 3000)
-        basic.pause(100)
-        basic.showIcon(IconNames.SmallSquare)
-    }
-})
-```
-
-Ta en `hvis sann`-kloss fra kategorien `Logikk` og plasser den under `vis ikon`-klossen, men pass på at `hvis`-klossen er inni munnen til den blå `gjenta for alltid`-klossen.
-
-```blocks
-basic.forever(function () {
-    if (input.buttonIsPressed(Button.AB)) {
-        basic.clearScreen()
-        nedtelling = Math.randomRange(0, 3000)
-        basic.pause(100)
-        basic.showIcon(IconNames.SmallSquare)
-        if (true) {
-
-        }
-    }
-})
-```
-
-Finn så en `0 = 0`-kloss fra kategorien `Logikk` og plasser den over `sann` i `hvis sann`-klossen.
-
-```blocks
-let nedtelling = 0
-basic.forever(function () {
-    if (input.buttonIsPressed(Button.AB)) {
-        basic.clearScreen()
-        nedtelling = Math.randomRange(0, 3000)
-        basic.pause(100)
-        basic.showIcon(IconNames.SmallSquare)
-        if (0 == 0) {
-
-        }
-    }
-})
-```
-
-Trykk på `=` på `0 = 0`-klossen for å få frem rullegardinmenyen og skift tegnet til `>`.
-
-```blocks
-let nedtelling = 0
-basic.forever(function () {
-    if (input.buttonIsPressed(Button.AB)) {
-        basic.clearScreen()
-        nedtelling = Math.randomRange(0, 3000)
-        basic.pause(100)
-        basic.showIcon(IconNames.SmallSquare)
-        if (0 > 0) {
-
-        }
-    }
-})
-```
-
-Ta en `nedtelling`-kloss fra `Variabler` og plasser den på `0` som er til venstre på `0 = 0`-klossen.
-
-```blocks
-let nedtelling = 0
-basic.forever(function () {
-    if (input.buttonIsPressed(Button.AB)) {
-        basic.clearScreen()
-        nedtelling = Math.randomRange(0, 3000)
-        basic.pause(100)
-        basic.showIcon(IconNames.SmallSquare)
-        if (nedtelling > 0) {
-
-        }
-    }
-})
-```
-
-Flytt `pause`-klossen og plasser den i «munnen» til `hvis nedtelling > 0`-klossen. Skift verdien i verdifeltet på `pause`-klossen til `1`. Etterpå flytter du `vis ikon`-klossen under `hvis nedtelling > 0`-klossen.
-
-!!! tip "Hvordan flytte kun en kloss"
-    Du kan flytte en kloss som henger fast andre klosser. For å gjøre det må du holde nede `ctrl`-tasten på tastaturet når du flytter klossen.
-
-```blocks
-let nedtelling = 0
-basic.forever(function () {
-    if (input.buttonIsPressed(Button.AB)) {
-        basic.clearScreen()
-        nedtelling = Math.randomRange(0, 3000)
-        if (nedtelling > 0) {
-            basic.pause(100)
-        }
-        basic.showIcon(IconNames.SmallSquare)
-    }
-})
-```
-
-Til slutt henter du en `endre nedtelling med`-kloss fra variabler og plasserer den under `pause`-klossen. Pass på at både `pause`-klossen og `endre nedtelling med`-klossen er inni «munnen» til `hvis nedtelling > 0`-klossen.
-
-```blocks
-let nedtelling = 0
-basic.forever(function () {
-    if (input.buttonIsPressed(Button.AB)) {
-        basic.clearScreen()
-        nedtelling = Math.randomRange(0, 3000)
-        if (nedtelling > 0) {
-            basic.pause(100)
-            nedtelling += 1
-        }
-        basic.showIcon(IconNames.SmallSquare)
-    }
-})
-```
-
-Endre verdien i verdifeltet til `pause`-klossen til 1 og verditeltet til `endre nedtelling med`-klossen til -1.
-
-```blocks
-let nedtelling = 0
-basic.forever(function () {
-    if (input.buttonIsPressed(Button.AB)) {
-        basic.clearScreen()
-        nedtelling = Math.randomRange(0, 3000)
-        if (nedtelling > 0) {
-            basic.pause(1)
-            nedtelling += -1
-        }
-        basic.showIcon(IconNames.SmallSquare)
-    }
-})
-```
-
-!!! question "Hvordan fungerer nedtellingen?"
-    Vi bruker variabelen `nedtelling` til å huske et tilfeldig valgt tall mellom 0 og 3000. La oss si at tallet 10 var det tilfeldige tallet som ble valgt.
-
-    I neste steg av koden går programmet inn i en `gjenta`-kloss. I begynnelsen av denne klossen skjekker `gjenta`-klossen om variabelen `nedtelling` er større enn 0. Variabelen `nedtelling` er 10, derfor fortsetter programmet inn i «munnen» til `gjenta`-klossen. Her tar programmet en pause på 1 millisekund. Etter pausen tar programmet og forandrer `nedtelling`med -1. Variabelen `nedtelling` er nå tallet 9.
-
-    I det siste steget går programmet tilbake til toppen av `gjenta`-klossen og skjekker om `nedtelling` er større enn 0. Variabelen `nedtelling` er nå 9, så den gjentar koden inni «munnen» på `gjenta`-klossen på ny.
-
-    Dette fortsetter helt til variabelen `nedtelling` er 0. Da vil programmet gå videre i koden og vise firkanten på skjermen som er plassert under `gjenta`-klossen.
-
-    Fordi variabelen `nedtelling` begynte som tallet 10, så blir koden inni `gjenta`-klossen gjentatt ti ganger før `nedtelling` er blitt 0. I løpet disse ti gjentagelsene har også programmet tatt ti pauser på 1 millisekund hver. Det betyr at vi har laget en nedtelling som totalt varer i 10 millisekund.
-
-## Steg 4: Lage reglene for når en spiller vinner eller taper
-
-I denne delen skal vi kode reglene for reaksjonspillet ved å bruke klosser fra `Logikk` kategorien. Vi ønsker at når en spiller er den første til å trykke på sin knapp når firkanten vises på skjermen vinner spillet.
-
-Vi ønsker også å kode en regel som gjør at hvis en spiller trykker på sin knapp før firkanten er blitt vist, så taper den spilleren som trykket.
-
-Begynn med å finne en `hvis ellers`-kloss fra kategorien `Logikk`. Plasser klossen inni «munnen» til `når knapp A trykkes`-klossen. Pass på at `vis skjerm`-klossen plasseres inni «munnen» under `hvis`-klossen.
+* Finn klossen `hvis sann`{:.logic} fra kategorien `Logikk`{:.logic}. Dra klossen over `hvis knapp A trykkes`{:.input}-klossen og slipp den når `vis bilde`{:.basic}-klossen er i munnen på `hvis sann`{:.logic}-klossen.
 
 ```blocks
 input.onButtonPressed(Button.A, function () {
@@ -367,17 +205,55 @@ input.onButtonPressed(Button.A, function () {
             . # . . .
             . . # . .
             `)
-    } else {
-
     }
 })
+
 ```
 
-Finn å en `0 = 0`-kloss fra `Logikk` og plasser den på verdifeltet til `hvis ellers`-klossen.
+* Trekk klossen `0 < 0`{:.logic} fra kategorien `Logikk`{:.logic} og plasser den på verdifetet til `hvis sann`{:.logic}-klossen.
 
 ```blocks
 input.onButtonPressed(Button.A, function () {
-    if (0 == 0) {
+    if (0 < 0) {
+        basic.showLeds(`
+            . . # . .
+            . # . . .
+            # # # # #
+            . # . . .
+            . . # . .
+            `)
+    }
+})
+
+```
+
+* Finn variabelen `sluttid`{:.variables} fra `Variabel`{:.variables}-kategorien og plasser klossen på det venstre verdifeltet på `0 < 0`{:.logic}-klossen.
+* Finn klossen `kjøretid (ms)`{:.input} fra `Inndata`{:.input}-kategorien plasserer klossen på det høyre verdifeltet på `sluttid < 0`{:.logic}-klossen.
+
+```blocks
+input.onButtonPressed(Button.A, function () {
+    let sluttid = 0
+    if (sluttid < input.runningTime()) {
+        basic.showLeds(`
+            . . # . .
+            . # . . .
+            # # # # #
+            . # . . .
+            . . # . .
+            `)
+    }
+})
+
+```
+
+Nå har vi programmert den første regelen til reaksjonsspillet. Heldigvis er det enklere å fortelle spillet om den andre regelen.
+
+* Trykk på `+`-knappen nederst på `hvis sluttid < kjøretid (ms)`{:.logic}-klossen. Klossen vil da bli til en `hvis sluttid < kjøretid (ms) ellers`{:.logic}-kloss.
+
+```blocks
+input.onButtonPressed(Button.A, function () {
+    let sluttid = 0
+    if (sluttid < input.runningTime()) {
         basic.showLeds(`
             . . # . .
             . # . . .
@@ -391,11 +267,13 @@ input.onButtonPressed(Button.A, function () {
 })
 ```
 
-Plasser så `nedtelling`-klossen fra variabler på verdifeltet til venstre for er lik i `0 = 0`-klossen.
+* Finn en `vis bilde`{:.basic}-kloss og plasser i munnen på `ellers` på `hvis sluttid < kjøretid (ms) ellers`{:.logic}-klossen.
+* Tegn en pil på `vis bilde`{:.basic}-kloss som peker motsatt vei `vis bilde`{:.basic}-klossen over den.
 
 ```blocks
 input.onButtonPressed(Button.A, function () {
-    if (nedtelling == 0) {
+    let sluttid = 0
+    if (sluttid < input.runningTime()) {
         basic.showLeds(`
             . . # . .
             . # . . .
@@ -413,13 +291,46 @@ input.onButtonPressed(Button.A, function () {
             `)
     }
 })
+
 ```
 
-Gjenta så Steg 5 fra begynnelsen for `når knapp B trykkes`-klossen.
+Da har vi fortalt spillet om den andre regelen.
+
+Til slutt i dette steget skal vi fortelle spillet at det skal starte på nytt etter at en knapp er trykket. For å starte programmet på nytt skal vi bruke klossen `tilbakestill`.
+
+* Ta klossen `pause (ms) 100`{:.basic} og plasser den under `hvis sluttid < kjøretid (ms) ellers`{:.logic}-klossen. Skift tallet i verdifeltet til 2000.
+* Finn klossen `tilbakestill`{:.control} i kategorien `Styring`{:.control}. Kategorien `Kontroll`{:.control} finner du ved å først trykke på `Avansert` i kategoriskuffen. Da vil skuffen vise mange flere kategorier.
+* Ta tak i `tilbakestill`{:.control}-klossen og plasser den under `pause (ms) 2000`{:.basic}-klossen.
+
+```blocks
+input.onButtonPressed(Button.A, function () {
+    if (sluttid < input.runningTime()) {
+        basic.showLeds(`
+            . . # . .
+            . # . . .
+            # # # # #
+            . # . . .
+            . . # . .
+            `)
+    } else {
+        basic.showLeds(`
+            . . # . .
+            . . . # .
+            # # # # #
+            . . . # .
+            . . # . .
+            `)
+    }
+    basic.pause(2000)
+    control.reset()
+})
+```
+
+Gjenta hele steget du akkurat har gjort for `hvis knapp B trykkes`{:.input}-klossen. Når du er ferdig skal`hvis knapp B trykkes` se ut som bildet under. Legg merke til at pilene peker motsatt vei sammenlignet med `hvis knapp B trykkes`{:.input}.
 
 ```blocks
 input.onButtonPressed(Button.B, function () {
-    if (nedtelling == 0) {
+    if (sluttid < input.runningTime()) {
         basic.showLeds(`
             . . # . .
             . . . # .
@@ -436,23 +347,204 @@ input.onButtonPressed(Button.B, function () {
             . . # . .
             `)
     }
+    basic.pause(2000)
+    control.reset()
 })
 ```
 
-!!! warning "Pass på!"
-    Husk at pilene er omvendt i `når knapp B trykkes`-klossen sammenlignet med `når knapp A trykkes`-klossen.
+!!! success "Test programmet"
+    Prøv å trykke på en av knappene på Micro Biten etter at firkanten dukker opp på skjermen. Da skal pilen som vises på skjermen peke mot knappen som ble tyrkt. Etter at pilen er blitt vist i to sekunder skal reaksjonsspillet starte på nytt. Prøv også å trykke på en av knappene før prikken blir til en firkant. Pilen skal nå peke mot den andre knappen.
+
+!!! failure "Det virker ikke!"
+    Peker ikke pilene riktig når du trykker på knappene? Eller starter ikke reaksjonsspillet på nytt når du trykker en knapp? Da er noe galt i koden din. For å finne feilen bør du lese dette steget om igjen og se nøye på bildene.
+
+## Steg 4: Sjekke om en spiller har trykket sin knapp
+
+Nå er reaksjonsspillet nesten ferdig, men det er et par ting som gjenstår. Vi må legge til en *tilstand* i spillet. En tilstand forteller spillet om noe har skjedd eller ikke. Tilstanden vi skal sjekke er om en av spillerne har trykket på sin knapp.
+
+* Finn en `hvis sann`{:.logic}-kloss fra `Logikk`{:.logic}-kategorien. Plasser klossen i munnen til `hvis knapp A trykt`{:.input}-klossen og i tillegg rundt `hvis sluttid < kjøretid (ms) ellers`{:.logic}-klossen.
+* Dra en `ikke`{:.logic}-kloss fra `Logikk`{:.logic}-kategorien og plasser de på verdifeltet til `hvis sann`{:.logic}-klossen.
+* Lag en ny variabel som heter `knapp_er_trykt`{:.variables}.
+* Drar `knapp_er_trykt`{:.variables}-klossen fra `Variabel`{:.variables}-kategorien og plasserer den på verdifeltet til `ikke`{:.logic}-klossen.
+
+```blocks
+input.onButtonPressed(Button.A, function () {
+    let er_knapp_trykt = 0
+    if (!(er_knapp_trykt)) {
+        if (sluttid < input.runningTime()) {
+            basic.showLeds(`
+                . . # . .
+                . # . . .
+                # # # # #
+                . # . . .
+                . . # . .
+                `)
+        } else {
+            basic.showLeds(`
+                . . # . .
+                . . . # .
+                # # # # #
+                . . . # .
+                . . # . .
+                `)
+        }
+        basic.pause(2000)
+        control.reset()
+    }
+})
+```
+
+* Finn `sett knapp_er_trykt til`{:.variables}-klossen fra `Variabel`{:.variables}-kategorien. Plasser klossen ovenfor `hvis sluttid < kjøretid (ms) ellers`{:.logic}-klossen.
+* Ta klossen `sann`{:.logic} fra kategorien `Logikk`{:.logic} og plasser den på verdifeltet til `sett knapp_er_trykt til`{:.variables}-klossen.
+
+```blocks
+input.onButtonPressed(Button.A, function () {
+    if (!(er_knapp_trykt)) {
+        er_knapp_trykt = true
+        if (sluttid < input.runningTime()) {
+            basic.showLeds(`
+                . . # . .
+                . # . . .
+                # # # # #
+                . # . . .
+                . . # . .
+                `)
+        } else {
+            basic.showLeds(`
+                . . # . .
+                . . . # .
+                # # # # #
+                . . . # .
+                . . # . .
+                `)
+        }
+        basic.pause(2000)
+        control.reset()
+    }
+})
+```
+
+De siste klossen du skal plassere er en `hvis sann`{:.logic}-kloss Denne klosse skal sjekke om en knapp er blitt trykt. Den gjør at firkanten kun dukker opp på skjermen hvis ingen knaper er blitt trykt på av spillerne.
+
+* Finn klossen `hvis sann`{:.logic} fra kategorien `Logikk`{:.logic}. Plasser klossen rundt `vis bilde`{:.basic}-klossen er plassert i kunnen til `ved start`{:.basic}-klossen.
+* På verdifeltet til `hvis sann`{:.logic}-klossen plasserer du først en `ikke`{:.logic}-kloss og så variabelen `knapp_er_trykt`{:.variables}.
+
+```blocks
+let sluttid = 0
+let starttid = input.runningTime()
+let ventetid = Math.randomRange(0, 5000)
+sluttid = starttid + ventetid
+basic.showLeds(`
+    . . . . .
+    . . . . .
+    . . # . .
+    . . . . .
+    . . . . .
+    `)
+basic.pause(ventetid)
+if (!(knapp_er_trykt)) {
+    basic.showLeds(`
+        . . . . .
+        . # # # .
+        . # . # .
+        . # # # .
+        . . . . .
+        `)
+}
+```
+
+Da er du ferdig! Hele koden til reaksjonsspillet skal se ut som på bildet under.
+
+```blocks
+input.onButtonPressed(Button.A, function () {
+    if (!(knapp_er_trykt)) {
+        knapp_er_trykt = true
+        if (sluttid < input.runningTime()) {
+            basic.showLeds(`
+                . . # . .
+                . # . . .
+                # # # # #
+                . # . . .
+                . . # . .
+                `)
+        } else {
+            basic.showLeds(`
+                . . # . .
+                . . . # .
+                # # # # #
+                . . . # .
+                . . # . .
+                `)
+        }
+        basic.pause(2000)
+        control.reset()
+    }
+})
+input.onButtonPressed(Button.B, function () {
+    if (!(knapp_er_trykt)) {
+        knapp_er_trykt = true
+        if (sluttid < input.runningTime()) {
+            basic.showLeds(`
+                . . # . .
+                . . . # .
+                # # # # #
+                . . . # .
+                . . # . .
+                `)
+        } else {
+            basic.showLeds(`
+                . . # . .
+                . # . . .
+                # # # # #
+                . # . . .
+                . . # . .
+                `)
+        }
+        basic.pause(2000)
+        control.reset()
+    }
+})
+let knapp_er_trykt = false
+let sluttid = 0
+let starttid = input.runningTime()
+let ventetid = Math.randomRange(0, 5000)
+sluttid = starttid + ventetid
+basic.showLeds(`
+    . . . . .
+    . . . . .
+    . . # . .
+    . . . . .
+    . . . . .
+    `)
+basic.pause(ventetid)
+if (!(knapp_er_trykt)) {
+    basic.showLeds(`
+        . . . . .
+        . # # # .
+        . # . # .
+        . # # # .
+        . . . . .
+        `)
+}
+```
 
 !!! success "Test programmet"
+    Prøv å trykke på en knapp på Micro Biten før firkanten vises på skjermen. Pilen skal da peke mot den knappen som ikke ble trykt. Når spillet har startet på nytt prøver du å trykke på en knapp etter at firkanten dukker opp på skjermen. Pilen skal da peke mot den knappen du trykte. Prøv så å trykke på en knapp og rett etterpå den andre knappen. Pilene skal ikke skifte retning når du gjør dette.
 
-## Skjekke om spillet kjører
+!!! failure "Det virker ikke!"
+    Vises firkanten på skjermen etter etter at du har trykt på en knapp? Eller skifter pilen retning når du trykker på begge knappene raskt etter hverandre? Da er noe galt i koden din. For å finne feilen bør du lese dette steget om igjen og se nøye på bildene.
 
-!!! success "Test programmet"
-    Overfør det ferdige programmet til Micro Biten ved å bruke en USB-kabel eller Blåtann. Spør en lærer om hjelp hvis du er usikker. Rist på terningen din og sjekk at programmet fungerer riktig.
+## Avslutning
 
-Gratulerer, du har nå laget et reaksjonspill. Start spillet med å trykke på A og B-knappene på Micro Biten samtidig. Hvem er raskest av deg og en venn?
+Gratulerer, du har nå laget et reaksjonspill! Hvis du testet programmet ditt på slutten av forrige steg og ikke fant noen feil så skal du nå overføre programmet til Micro Biten.
 
-!!! question "Utfordring"
-    Spillet vårt kan få flere funksjoner. Se om du kan legge til en nedtelling før spillet begynner på egenhånd. Eller se om du klarer å programmere ved å bruke boolske variabler slik at hvis en spiller trykker for tidlig så taper han eller henne.
+* Koble Micro Biten til datamaskinen din med en USB-kabel.
+* Trykk på tannhjulet øverst til høyre på siden og velg `Koble sammen`.
+* Nå vises en dialogboks på siden. Trykk på knappen `Koble sammen`.
+* Velg *BBC micro:bit CMSIS-DAP* eller *DAPLink CMSIS-DAP* fra listen som vises og trykk på knappen `Sammenkoble`.
+* Trykk til slutt på knappen `Last ned` nederst til venstre på siden for å overføre programmet til Micro Biten.
+
+Da er det på tide å spille spillet! Hvem er raskest av deg og en venn?
 
 [^1]:
     Det finnes mange forskjellige programmeringssider og -apper for Micro Bit. Bruk den siden eller appen som du har lært i undervisningen.
